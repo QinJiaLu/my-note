@@ -1,0 +1,119 @@
+#1.转换为大写
+my_string='aBcDr'
+re1=my_string.upper()
+print(re1)   #>>ABCDR
+
+#2.转换为小写
+re2=my_string.lower()
+print(re2)  #>>abcdr
+
+#3.大小写互换
+my_string='ADdDE'
+re=my_string.swapcase()
+print(re)   #>>adDde
+
+#4.字符串首字母大写
+my_string_4='hello this world'
+re4=my_string_4.capitalize()
+print(re4)  #>>Hello this world
+
+#5.将字符串每个单词首字母大写
+my_string_4='hello this world'
+re4=my_string_4.title()
+print(re4)  #>>Hello This World
+
+#6.切分字符串
+my_string_4='hello this world'
+re4=my_string_4.split(' ',3)    #两个参数：用什么切分，最多切分几次
+print(re4)  #>>['hello', 'this', 'world']
+
+#7.字符串的连接
+my_string_4='hello this world'
+re4=my_string_4.split(' ',3)    #re4=['hello', 'this', 'world']
+re5='-'.join(re4)
+print(re5)  #>>hello-this-world
+
+#8.去掉两侧指定字符，去掉前面指定字符，去掉后侧指定字符
+my_string='    hello you*****'
+re=my_string.lstrip(' ')
+re1=my_string.rstrip('*')
+print(re)   #>>hello you*****
+print(re1)  #>>    hello you
+
+#9.填充（可以用来左对齐，右对齐，居中）
+my_string='we'
+re=my_string.rjust(5,'#')   #参数：填充后的长度，用什么填充
+print(re)   #>>###we
+print(re1)  #>>we***
+print(re2)  #>>&&we&&
+
+#10.替换字符
+my_string='    hello you*****'
+re3=my_string.replace(' ','#',3)    #参数为：旧字符，新字符，替换个数
+print(re3)  #>>### hello you*****
+
+#11.统计字符出现个数
+my_string='hello this world please try your best'
+re=my_string.count('is',0,len(my_string))   #参数：字符，起始位置，结束位置
+print(re)
+
+###########字典操作####################
+#1.清除字典clear
+list={'a':'wo','b':'ni'}
+a=list.clear()
+print(type(a))  #>><class 'NoneType'>
+print(a)    #>>None
+
+#3.fromkyes()
+a1='12' #字符串
+a2=[1,2]    #列表
+a3=(1,2)    #元组
+a4={1:'字典',2:'字典'}
+v1=dict.fromkeys(a1,'字符串')
+v2=dict.fromkeys(a2,'列表')
+v3=dict.fromkeys(a3,'元组')
+v4=dict.fromkeys(a4,'字典')
+print(v1)   #{'1': '字符串', '2': '字符串'}
+print(v2)   #{1: '列表', 2: '列表'}
+print(v3)   #{1: '元组', 2: '元组'}
+print(v4)   #{1: '字典', 2: '字典'}
+
+#4.items() 将字典转成列表嵌套元组的形式
+re=dict.fromkeys('123','j')
+a=re.items()
+print(a)    #dict_items([('1', 'j'), ('2', 'j'), ('3', 'j')])
+
+#5.获取字典所有的键和值 keys(),values()
+re=dict.fromkeys('123','j')
+print(re.keys())    #dict_keys(['1', '2', '3'])
+print(re.values())  #dict_values(['j', 'j', 'j'])
+
+####################列表操作######################3
+#1.count()
+my_string='national day'
+a=my_string.count('a',2,len(my_string)) #参数：需计数字符，起始位置，结束位置
+print(a)    #>>2
+
+#2.extend（另一个列表） 将另一个list追加到调用列表后边
+list_1=['a','b','c']
+list_2=['1','2']
+list_1.extend(list_2)
+print(list_1)   #['a', 'b', 'c', '1', '2']
+
+#3.逆序
+list_1=['a','b','c']
+list_2=['1','2']
+list_1.extend(list_2)
+list_1.reverse()   
+print(list_1)   #>>['2', '1', 'c', 'b', 'a']
+
+#4.排序sort()
+
+###################将函数作为参数使用
+#1.
+def my_function(fun, value):
+    res = fun(value)
+    print(res)
+
+#将abs函数 当成参数使用
+my_function(abs, -2)
